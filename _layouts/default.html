@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    {% seo %}
   </head>
   <body>
     <div class="wrapper">
@@ -21,10 +22,10 @@
         </div>
         
         <nav class="main-nav">
-          <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
-          <a href="/professional-experience" {% if page.url contains "professional-experience" %}class="active"{% endif %}>Professional Experience</a>
-          <a href="/volunteer-experience" {% if page.url contains "volunteer-experience" %}class="active"{% endif %}>Volunteer Experience</a>
-          <a href="/part-time-experience" {% if page.url contains "part-time-experience" %}class="active"{% endif %}>Part-time Experience</a>
+          <a href="{{ '/' | relative_url }}" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+          <a href="{{ '/professional-experience' | relative_url }}" {% if page.url contains "professional-experience" %}class="active"{% endif %}>Professional Experience</a>
+          <a href="{{ '/volunteer-experience' | relative_url }}" {% if page.url contains "volunteer-experience" %}class="active"{% endif %}>Volunteer Experience</a>
+          <a href="{{ '/part-time-experience' | relative_url }}" {% if page.url contains "part-time-experience" %}class="active"{% endif %}>Part-time Experience</a>
         </nav>
       </header>
       
