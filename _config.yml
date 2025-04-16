@@ -1,0 +1,8 @@
+title: Shubhani Rawat
+description: Technical Writer & Documentation Specialist
+theme: jekyll-theme-minimal
+logo: /assets/img/profile.png
+show_downloads: false
+google_analytics:
+plugins:
+  - jekyll-seo-tag 

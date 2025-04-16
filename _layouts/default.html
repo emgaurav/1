@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="profile-section">
+          {% if site.logo %}
+          <img src="{{site.logo}}" alt="Profile" class="profile-img" />
+          {% endif %}
+          <h1>{{ site.title }}</h1>
+          <p>{{ site.description }}</p>
+        </div>
+        
+        <nav class="main-nav">
+          <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+          <a href="/professional-experience" {% if page.url contains "professional-experience" %}class="active"{% endif %}>Professional Experience</a>
+          <a href="/volunteer-experience" {% if page.url contains "volunteer-experience" %}class="active"{% endif %}>Volunteer Experience</a>
+          <a href="/part-time-experience" {% if page.url contains "part-time-experience" %}class="active"{% endif %}>Part-time Experience</a>
+        </nav>
+      </header>
+      
+      <main>
+        {{ content }}
+      </main>
+      
+      <footer>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  </body>
+</html> 
