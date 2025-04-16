@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubhani Rawat - Technical Writer & Scrum Master</title>
+    <style>
+        :root {
+            --primary-color: #2a6592;
+            --secondary-color: #f0f7ff;
+            --accent-color: #ff7e5f;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #fff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4eff9 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a4971 100%);
+            color: var(--white);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/600') center/cover;
+            opacity: 0.1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background-color: #d1e3f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            margin-right: 40px;
+        }
+        
+        .profile-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            max-width: 700px;
+        }
+        
+        /* Main content */
+        main {
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        
+        /* Links section */
+        .links-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .portfolio-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(42, 101, 146, 0.1);
+        }
+        
+        .portfolio-link:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(42, 101, 146, 0.2);
+        }
+        
+        /* Skills section */
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .skill-description {
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        /* Tools section */
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tool-tag {
+            background-color: rgba(42, 101, 146, 0.1);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-tag:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* Education section */
+        .education-container {
+            margin-top: 20px;
+        }
+        
+        .education-item {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-item::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            left: -9px;
+            top: 5px;
+        }
+        
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .institution {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+        
+        .year {
+            color: var(--light-text);
+            font-style: italic;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-container {
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+            }
+            
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .profile-text {
+                text-align: center;
+            }
+            
+            h1::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            .tools-list {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="profile-container">
+                <div class="profile-image">SR</div>
+                <div class="profile-text">
+                    <h1>Shubhani Rawat</h1>
+                    <p class="tagline">Technical Writer • Scrum Master • Project Management Professional</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="card">
+            <p class="intro-text">
+                As a Technical Writer with a Bachelor's degree in Computer Science and a postgraduate degree in Advanced Project Management and Strategic Leadership, I bring nearly seven years of experience in technical and UX writing, software documentation, and digital writing.
+                <br><br>
+                Certified as a Scrum Master and with a background in software engineering, I possess a comprehensive understanding of the Document Development Life Cycle, particularly within Agile methodologies. My innovative approach and tech-savvy nature have been instrumental in navigating the fast-paced world of IT, making me a valuable asset to any team.
+            </p>
+            
+            <h2>Portfolio Sections</h2>
+            <div class="links-section">
+                <a href="professional-experience.md" class="portfolio-link">💼 Professional Experience</a>
+                <a href="volunteer-experience.md" class="portfolio-link">🙌 Volunteer Experience</a>
+                <a href="part-time-experience.md" class="portfolio-link">🧑‍💻 Part-time Experience</a>
+            </div>
+        </section>
+        
+        <section class="card" id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-title">Agile and Scrum Master</div>
+                    <p class="skill-description">
+                        As a certified Scrum Master, I thrive in agile environments. As a project management student, I have developed a deep interest in how agile methodologies can accelerate project completion. I believe that when implemented effectively with well-planned sprints, agile can consistently deliver projects before time.
+                    </p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-title">Technical Writing</div>
+                    <p class="skill-description">
+                        Specialized in creating clear, concise, and user-friendly documentation that bridges the gap between complex technical concepts and end-users. Experienced in developing various documentation types including user guides, API documentation, and knowledge bases.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>Technical Tools & Platforms</h3>
+            <div class="tools-list">
+                <span class="tool-tag">Madcap Flare</span>
+                <span class="tool-tag">Robohelp</span>
+                <span class="tool-tag">Adobe FrameMaker</span>
+                <span class="tool-tag">Snagit</span>
+                <span class="tool-tag">Drupal</span>
+                <span class="tool-tag">Trello</span>
+                <span class="tool-tag">MS-Planner</span>
+                <span class="tool-tag">JIRA</span>
+                <span class="tool-tag">Confluence</span>
+                <span class="tool-tag">AWS (S3)</span>
+                <span class="tool-tag">Github</span>
+                <span class="tool-tag">Gitlab</span>
+                <span class="tool-tag">Jenkins</span>
+                <span class="tool-tag">Canva Pro</span>
+                <span class="tool-tag">Wix</span>
+                <span class="tool-tag">Mural</span>
+                <span class="tool-tag">Da Vinci Resolve</span>
+                <span class="tool-tag">HitFilm Express</span>
+                <span class="tool-tag">ChatGPT</span>
+                <span class="tool-tag">Grok.ai</span>
+                <span class="tool-tag">Perplexity</span>
+                <span class="tool-tag">Claude</span>
+                <span class="tool-tag">EDraw max</span>
+                <span class="tool-tag">MS-visio</span>
+                <span class="tool-tag">Microsoft Dynamic 365</span>
+                <span class="tool-tag">MS-Office 365</span>
+                <span class="tool-tag">Google Suite</span>
+                <span class="tool-tag">Doc 365</span>
+                <span class="tool-tag">Notion</span>
+                <span class="tool-tag">Slack</span>
+                <span class="tool-tag">Readme.so</span>
+            </div>
+        </section>
+        
+        <section class="card" id="education">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <div class="degree">(Post-Grad) Advanced Project Management and Strategic Leadership</div>
+                    <div class="institution">Lambton College, Ontario, Canada</div>
+                    <div class="year">(2020-2021)</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="degree">(B.Tech) Bachelors in Computer Sciences and Engineering</div>
+                    <div class="institution">Baddi University of Emerging Sciences and Technology, India</div>
+                    <div class="year">(2012-2016)</div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
